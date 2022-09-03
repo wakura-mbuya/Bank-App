@@ -1,5 +1,6 @@
 package com.example.bankapp.viewModel;
 
+import android.app.Activity;
 import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
@@ -22,6 +23,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MpesaViewModel extends ViewModel {
+
+    private AlertDialog alertDialog;
+    private static String TAG = MpesaViewModel.class.getSimpleName();
+
+
 
     public void makeApiCall(){
         MpesaInterface mpesaInteface = RetrofitInstance.getRetrofitInstance().create(MpesaInterface.class);
@@ -65,8 +71,8 @@ public class MpesaViewModel extends ViewModel {
                 call1.enqueue(new Callback<MpesaStkResponse>() {
                     @Override
                     public void onResponse(Call<MpesaStkResponse> call, Response<MpesaStkResponse> response) {
-                        if (response.code() != 200) {
-                            Log.i("Tag","Error");
+                        if (response.isSuccessful()) {
+                            Log.i(TAG,response.body().ResponseCode);
                         }
 
                     }

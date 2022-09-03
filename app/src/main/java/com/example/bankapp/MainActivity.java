@@ -1,4 +1,4 @@
-package com.example.bankapp;
+ package com.example.bankapp;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(MainActivity.this, "OKay", Toast.LENGTH_SHORT).show();
+                dialogInterface.dismiss();
             }
         });
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(MainActivity.this, "Not", Toast.LENGTH_SHORT).show();
+                dialogInterface.cancel();
             }
         });
         alert.create().show();
