@@ -12,7 +12,8 @@ import com.example.bankapp.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView mlogin;
+    TextView mlogin,notRegistered;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         mlogin = findViewById(R.id.login);
         mlogin.setOnClickListener(this);
+        notRegistered = findViewById(R.id.notRegistered);
+        notRegistered.setOnClickListener(this);
     }
 
     @Override
@@ -28,6 +31,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()){
             case R.id.login:
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+                break;
+            case R.id.notRegistered:
+                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
                 finish();
                 break;
         }
