@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BankApp</string>
+    <string name="congraturations_you_have_qualify_for_a_loan_ksh_6000">Congraturations!! You have Qualify for a loan Ksh 6000</string>
+    <string name="act">Activate Your account to get Loan</string>
 </resources>
