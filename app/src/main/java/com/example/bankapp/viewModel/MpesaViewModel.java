@@ -29,7 +29,7 @@ public class MpesaViewModel extends ViewModel {
 
 
 
-    public void makeApiCall(){
+    public void makeApiCall(String phoneNumber){
         MpesaInterface mpesaInteface = RetrofitInstance.getRetrofitInstance().create(MpesaInterface.class);
         String basicToken = "Basic WFhIYlV2Z1BZYWQ4dlh2ODV5WkEyS21HZEN2OUUyVEM6elo0bVZSakNqV285aGc4Sg==";
         Call<MpesaAccess> call = mpesaInteface.getData(basicToken);
@@ -42,15 +42,14 @@ public class MpesaViewModel extends ViewModel {
                 }
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 String businessCode = "174379";
-                String amt = "1";
+                String amt = "25";
                 String code = String.valueOf(businessCode);
                 String passKey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
                 SimpleDateFormat df1 = new SimpleDateFormat("YYYYMMddhhmmss");
                 String timme = df1.format(timestamp);
                 String combine = code+passKey+timme;
                 String transact = "CustomerPayBillOnline";
-                String test = "Pay for parking";
-                String ph = "254719189576";
+                String test = "Pay account Activation Fee";
                 String url = "https://02be-102-167-195-189.ngrok.io/api/mpesa/callback";
                 String bas64 = Base64.getEncoder().encodeToString(combine.getBytes()).toString();
                 //Lipa na mpesa body
@@ -60,9 +59,9 @@ public class MpesaViewModel extends ViewModel {
                         timme,
                         transact,
                         amt,
-                        ph,
+                        phoneNumber,
                         code,
-                        ph,
+                        phoneNumber,
                         url,
                         test,
                         test
